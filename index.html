@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elias Nijs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="home">
+
+  <nav id="main-nav" class="site-nav"></nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow" data-i18n="hero.eyebrow"></span>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="sub" data-i18n="hero.subtitle"></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="products.html" data-i18n="hero.cta1"></a>
+        <a class="btn btn-ghost"   href="contact.html"  data-i18n="hero.cta2"></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-surface">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="pillars.subtitle"></span>
+        <h2 data-i18n="pillars.title"></h2>
+      </div>
+      <div class="pillar-grid" id="pillar-grid"></div>
+    </div>
+  </section>
+
+  <section class="bg-dark">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-i18n="values.title"></h2>
+        <p data-i18n="values.subtitle"></p>
+      </div>
+      <div class="values-grid" id="values-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" id="about-block"></div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <h2 data-i18n="cta.title"></h2>
+      <p data-i18n="cta.body"></p>
+      <a class="btn btn-ghost" href="contact.html" data-i18n="cta.button"></a>
+    </div>
+  </section>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="data/translations.js"></script>
+  <script src="data/products.js"></script>
+  <script src="data/services.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

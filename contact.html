@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Elias Nijs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="contact">
+
+  <nav id="main-nav" class="site-nav"></nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="contact.heroSubtitle"></span>
+      <h1 data-i18n="contact.heroTitle"></h1>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <p class="service-intro" data-i18n="contact.intro"></p>
+
+      <div class="contact-layout">
+        <aside class="contact-details" id="contact-details"></aside>
+
+        <div class="contact-form">
+          <h3 data-i18n="contact.formTitle"></h3>
+          <div class="form-success"></div>
+          <form id="contact-form" novalidate>
+            <div class="form-field">
+              <label for="cf-name" data-i18n="contact.formName"></label>
+              <input id="cf-name" type="text" name="name" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-email" data-i18n="contact.formEmail"></label>
+              <input id="cf-email" type="email" name="email" required />
+            </div>
+            <div class="form-field">
+              <label for="cf-phone" data-i18n="contact.formPhone"></label>
+              <input id="cf-phone" type="tel" name="phone" />
+            </div>
+            <div class="form-field">
+              <label for="cf-message" data-i18n="contact.formMessage"></label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" data-i18n="contact.formSubmit"></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map-block" id="map-block"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="data/config.js"></script>
+  <script src="data/translations.js"></script>
+  <script src="data/products.js"></script>
+  <script src="data/services.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
