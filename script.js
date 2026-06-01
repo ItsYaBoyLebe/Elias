@@ -80,6 +80,7 @@
     applyTranslations();
     bindNavScroll();
     bindContactForm();
+    initScrollReveal();
   });
 
   // -------------------- CONFIG INJECTION --------------------
@@ -214,6 +215,35 @@
     const update = () => nav.classList.toggle("scrolled", window.scrollY > 20);
     update();
     window.addEventListener("scroll", update, { passive: true });
+  }
+
+  // -------------------- SCROLL REVEAL --------------------
+  function initScrollReveal() {
+    // Individual elements fade up when they enter the viewport
+    [
+      ".section-head", ".service-intro", ".about-split",
+      ".contact-layout", ".quote-block", ".map-block",
+      ".cta-strip .container",
+    ].forEach(sel =>
+      document.querySelectorAll(sel).forEach(el => el.classList.add("reveal"))
+    );
+
+    // Grid containers: children stagger in one by one
+    [
+      ".pillar-grid", ".values-grid", ".brand-grid", ".service-grid",
+    ].forEach(sel =>
+      document.querySelectorAll(sel).forEach(el => el.classList.add("reveal-stagger"))
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+    document.querySelectorAll(".reveal, .reveal-stagger").forEach(el => observer.observe(el));
   }
 
   // -------------------- LANGUAGE --------------------
