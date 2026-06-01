@@ -159,7 +159,7 @@ window.TRANSLATIONS = {
         {
           icon: "car",
           title: "Custom Cars & Classics",
-          body: "Specialised in BMW and Volkswagen: restoration, overhaul and custom builds for anyone who loves classics with character.",
+          body: "Specialized in BMW and Volkswagen: restoration, overhaul and custom builds for anyone who loves classics with character.",
           cta: "Learn more",
           link: "service.html#oldtimers"
         }
@@ -183,7 +183,7 @@ window.TRANSLATIONS = {
     },
     cta: {
       title: "Ready to get to work?",
-      body: "Request a demo, schedule a service, or discuss your classic car project.",
+      body: "Request a demo, schedule a service, or discuss your restoration project.",
       button: "Contact us"
     },
     footer: {
@@ -206,10 +206,10 @@ window.TRANSLATIONS = {
       heroTitle: "Service & Craftsmanship",
       heroSubtitle: "From machinery maintenance to classic cars",
       machineryTitle: "Machinery Service & Maintenance",
-      machineryIntro: "Your machines need to run. When they don't, we sort it — fast, skilled, no detours. Diagnostics, repair, maintenance and mobile callouts: all under one roof.",
+      machineryIntro: "Your machines need to run. When they don't, we sort it: fast, skilled, no detours. Diagnostics, repair, maintenance and mobile callouts: all under one roof.",
       oldtimerEyebrow: "A passion for metal",
       oldtimerTitle: "Custom Cars & Classics",
-      oldtimerIntro: "Classic cars and oldtimers deserve more than a standard approach. We specialise in particular in BMW and Volkswagen, where every vehicle gets the time and detail it needs. From full restorations to custom builds: you work directly with the man doing the work.",
+      oldtimerIntro: "Classic cars and oldtimers deserve more than a standard approach. We particularly specialize in BMW and Volkswagen, where every vehicle gets the time and detail it needs. From full restorations to custom builds: you work directly with the man doing the work.",
       oldtimerQuote: "Every classic car has a story. We make sure it keeps running."
     },
     notfound: {
@@ -221,7 +221,7 @@ window.TRANSLATIONS = {
     contact: {
       heroTitle: "Contact",
       heroSubtitle: "Let's talk",
-      intro: "A question about a machine, a repair to schedule, or a classic car project to discuss? Fill in the form or call directly.",
+      intro: "A question about a machine, a repair to schedule, or a restoration project to discuss? Fill in the form or call directly.",
       detailsTitle: "Contact details",
       phoneLabel: "Phone",
       emailLabel: "Email",

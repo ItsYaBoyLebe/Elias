@@ -2,7 +2,7 @@ window.CONFIG = {
   brand: {
     name: "Elias Nijs",
     tagline: {
-      nl: "Vakmanschap dat u op kunt vertrouwen",
+      nl: "Vakmanschap dat u kunt vertrouwen",
       en: "Craftsmanship you can trust"
     },
     defaultLang: "nl"
@@ -58,7 +58,7 @@ window.CONFIG = {
           en: "Elias Nijs – Forestry Machinery & Oldtimers"
         },
         description: {
-          nl: "Elias Nijs – De specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u op kunt vertrouwen.",
+          nl: "Elias Nijs – De specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u kunt vertrouwen.",
           en: "Elias Nijs – The specialist in professional forestry machinery, service and classic car restoration. Craftsmanship you can trust."
         }
       },
