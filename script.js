@@ -101,17 +101,27 @@
     document.documentElement.style.setProperty("--font-body",    `"${f.body}"`);
   }
 
+  function setMetaTag(attr, value, content) {
+    let el = document.querySelector(`meta[${attr}="${value}"]`);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, value);
+      document.head.appendChild(el);
+    }
+    el.content = content;
+  }
+
   function applyMeta() {
     const m = window.CONFIG?.meta?.pages?.[state.page];
     if (!m) return;
-    document.title = m.title[state.lang] || m.title.nl;
-    let desc = document.querySelector('meta[name="description"]');
-    if (!desc) {
-      desc = document.createElement("meta");
-      desc.name = "description";
-      document.head.appendChild(desc);
-    }
-    desc.content = m.description[state.lang] || m.description.nl;
+    const title       = m.title[state.lang]       || m.title.nl;
+    const description = m.description[state.lang] || m.description.nl;
+    document.title = title;
+    setMetaTag("name",     "description",       description);
+    setMetaTag("property", "og:title",          title);
+    setMetaTag("property", "og:description",    description);
+    setMetaTag("name",     "twitter:title",      title);
+    setMetaTag("name",     "twitter:description", description);
   }
 
   // -------------------- TRANSLATION HELPERS --------------------
