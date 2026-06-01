@@ -662,6 +662,34 @@ section { padding: 5rem 0; }
   color: rgba(255,255,255,0.5);
 }
 
+/* ----- 404 ----- */
+.notfound-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.notfound-wrap {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+.notfound-icon {
+  width: 88px;
+  height: 88px;
+  background: rgba(232,119,34,0.1);
+  color: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+.notfound-icon svg { width: 44px; height: 44px; }
+.notfound-wrap h1 { margin-bottom: 1rem; }
+.notfound-wrap p  { color: var(--color-text-muted); font-size: 1.15rem; margin-bottom: 2rem; }
+
 /* ----- ANIMATIONS ----- */
 
 /* Page load fade */

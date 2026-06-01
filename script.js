@@ -72,10 +72,11 @@
     renderFooter();
 
     // Page-specific renders
-    if (state.page === "products") renderBrands();
-    if (state.page === "service")  renderServices();
-    if (state.page === "home")     renderHome();
-    if (state.page === "contact")  renderContact();
+    if (state.page === "products")  renderBrands();
+    if (state.page === "service")   renderServices();
+    if (state.page === "home")      renderHome();
+    if (state.page === "contact")   renderContact();
+    if (state.page === "notfound")  renderNotFound();
 
     applyTranslations();
     bindNavScroll();
@@ -540,6 +541,12 @@
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
       }
     });
+  }
+
+  // -------------------- 404 --------------------
+  function renderNotFound() {
+    const host = document.getElementById("notfound-icon");
+    if (host) host.innerHTML = icon("car");
   }
 
   // -------------------- FOOTER --------------------

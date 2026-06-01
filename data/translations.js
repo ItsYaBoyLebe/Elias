@@ -94,8 +94,8 @@ window.TRANSLATIONS = {
     },
     notfound: {
       eyebrow: "404",
-      title: "Oeps! Verkeerde afslag genomen",
-      body: "Deze pagina hebben we door de versnipperaar gehaald. Of misschien reed ze gewoon weg in een oldtimer. Hoe dan ook — ze is er niet meer.",
+      title: "Panne.",
+      body: "Deze pagina bestaat niet. Maar Elias wel — en hij lost het op.",
       cta: "Terug naar huis"
     },
     contact: {
@@ -214,8 +214,8 @@ window.TRANSLATIONS = {
     },
     notfound: {
       eyebrow: "404",
-      title: "Wrong turn taken",
-      body: "We put this page through the chipper. Or maybe it drove off in a classic. Either way — it's gone.",
+      title: "Breakdown.",
+      body: "This page doesn't exist. But Elias does — and he'll sort it out.",
       cta: "Back to home"
     },
     contact: {
