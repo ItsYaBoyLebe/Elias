@@ -14,12 +14,12 @@ window.TRANSLATIONS = {
     hero: {
       eyebrow: "Bosbouwmachines · Service · Oldtimers",
       title: "Vakmanschap dat u kunt vertrouwen",
-      subtitle: "Van professionele bosbouwmachines tot de restauratie van uw oldtimer — Elias Nijs staat garant voor kwaliteit, ervaring en persoonlijke service.",
+      subtitle: "Van professionele bosbouwmachines tot de restauratie van uw oldtimer — Wij staan garant voor kwaliteit, ervaring en persoonlijke service.",
       cta1: "Ons aanbod",
       cta2: "Contacteer ons"
     },
     pillars: {
-      title: "Wat Elias voor u doet",
+      title: "Wat wij voor u doen",
       subtitle: "Drie specialisaties, één vakman.",
       items: [
         {
@@ -50,7 +50,7 @@ window.TRANSLATIONS = {
       subtitle: "Geen grote structuur. Wel jarenlange ervaring, een eerlijke aanpak en echte passie voor het vak.",
       items: [
         { icon: "wrench", title: "Expertise", body: "Jarenlange ervaring met professionele machines en motoren." },
-        { icon: "person", title: "Persoonlijke service", body: "U spreekt rechtstreeks met Elias — geen tussenpersonen." },
+        { icon: "person", title: "Persoonlijke service", body: "U spreekt rechtstreeks met Elias, geen tussenpersonen." },
         { icon: "star",   title: "Kwaliteit", body: "Werk dat af is. Machines die blijven draaien. Garanties die kloppen." },
         { icon: "heart",  title: "Passie", body: "Van bosmachine tot oldtimer: elke klus krijgt de aandacht die hij verdient." }
       ]
@@ -58,7 +58,7 @@ window.TRANSLATIONS = {
     about: {
       eyebrow: "Over Elias",
       title: "De man achter de machines",
-      body: "Elias Nijs neemt de fakkel over van Espritt en zet de stiel voort met diezelfde toewijding. Met een professionele bachelor Autotechnologie (<a href=\"https://thomasmore.be/nl/opleidingen/professionele-bachelor/autotechnologie/autotechnologie/sint-katelijne-waver/basistraject\" target=\"_blank\" rel=\"noopener\">Thomas More</a>) en jarenlange ervaring kent hij machines van binnen en van buiten. Of het nu gaat om een houtversnipperaar die stilvalt op de werf, een onderhoud, of de volledige restauratie van een klassieke wagen — u krijgt altijd hetzelfde: eerlijk werk, zonder franjes.",
+      body: "Elias Nijs neemt de fakkel over van Espritt en zet de stiel voort met diezelfde toewijding. Met een professionele bachelor Autotechnologie (<a href=\"https://thomasmore.be/nl/opleidingen/professionele-bachelor/autotechnologie/autotechnologie/sint-katelijne-waver/basistraject\" target=\"_blank\" rel=\"noopener\">Thomas More</a>) en jarenlange ervaring kent hij machines van binnen en van buiten. Of het nu gaat om een houtversnipperaar die stilvalt op de werf, een onderhoud, of de volledige restauratie van een klassieke wagen, u krijgt altijd hetzelfde: eerlijk werk, zonder omwegen.",
       cta: "Leer Elias kennen"
     },
     cta: {
@@ -77,7 +77,7 @@ window.TRANSLATIONS = {
     products: {
       heroTitle: "Onze merken",
       heroSubtitle: "De merken die wij verkopen",
-      intro: "Elias is officieel Forst-dealer en werkt met sterke, betrouwbare merken. Hieronder vindt u de merken die hij verkoopt en onderhoudt. Op zoek naar iets specifiek? Neem gerust contact op — we vinden samen de juiste oplossing voor uw werk.",
+      intro: "Wij zijn officieel Forst-dealer en werken met sterke, betrouwbare merken. Hieronder vindt u de merken die wij verkopen en onderhouden. Op zoek naar iets specifiek? Neem gerust contact op, dan vinden we samen de juiste oplossing voor uw werk.",
       ctaDemoTitle: "Interesse in een demo?",
       ctaDemoBody: "Kom de machines bekijken of vraag een demonstratie op locatie aan.",
       ctaDemoButton: "Contacteer ons"
@@ -86,11 +86,11 @@ window.TRANSLATIONS = {
       heroTitle: "Service & Vakmanschap",
       heroSubtitle: "Van machine-onderhoud tot klassieke auto's",
       machineryTitle: "Machine Service & Onderhoud",
-      machineryIntro: "Uw machines moeten draaien. Wanneer ze dat niet doen, lost Elias het op — snel, vakkundig en zonder omwegen. Diagnose, herstelling, onderhoud en mobiele interventies: alles onder één dak.",
+      machineryIntro: "Uw machines moeten draaien. Wanneer ze dat niet doen, lossen wij het op — snel, vakkundig en zonder omwegen. Diagnose, herstelling, onderhoud en mobiele interventies: alles onder één dak.",
       oldtimerEyebrow: "Passie voor het metaal",
       oldtimerTitle: "Custom Cars & Oldtimers",
-      oldtimerIntro: "Klassieke wagens en oldtimers verdienen meer dan een standaardaanpak. Elias is in het bijzonder gespecialiseerd in BMW en Volkswagen, waar elk voertuig de tijd en het detail krijgt dat het nodig heeft. Van volledige restauratie tot custom builds: u werkt rechtstreeks samen met de man die het werk uitvoert.",
-      oldtimerQuote: "Elk klassiek voertuig heeft een verhaal. Elias zorgt dat het blijft rijden."
+      oldtimerIntro: "Klassieke wagens en oldtimers verdienen meer dan een standaardaanpak. Wij zijn in het bijzonder gespecialiseerd in BMW en Volkswagen, waar elk voertuig de tijd en het detail krijgt dat het nodig heeft. Van volledige restauratie tot custom builds: u werkt rechtstreeks samen met de man die het werk uitvoert.",
+      oldtimerQuote: "Elk klassiek voertuig heeft een verhaal. Wij zorgen dat het blijft rijden."
     },
     contact: {
       heroTitle: "Contact",
@@ -128,12 +128,12 @@ window.TRANSLATIONS = {
     hero: {
       eyebrow: "Forestry Machinery · Service · Classic Cars",
       title: "Craftsmanship you can trust",
-      subtitle: "From professional forestry machinery to classic car restoration — Elias Nijs stands for quality, experience and personal service.",
+      subtitle: "From professional forestry machinery to classic car restoration — we stand for quality, experience and personal service.",
       cta1: "Our range",
       cta2: "Contact us"
     },
     pillars: {
-      title: "What Elias does for you",
+      title: "What we do for you",
       subtitle: "Three specialties, one craftsman.",
       items: [
         {
@@ -164,7 +164,7 @@ window.TRANSLATIONS = {
       subtitle: "No big overhead. Just years of experience, an honest approach and genuine passion for the trade.",
       items: [
         { icon: "wrench", title: "Expertise", body: "Years of hands-on experience with professional machinery and engines." },
-        { icon: "person", title: "Personal service", body: "You speak directly with Elias — no middlemen, no call centers." },
+        { icon: "person", title: "Personal service", body: "You speak directly with Elias, no middlemen." },
         { icon: "star",   title: "Quality", body: "Work that's finished. Machines that keep running. Guarantees that mean something." },
         { icon: "heart",  title: "Passion", body: "From forestry machine to classic car: every job gets the attention it deserves." }
       ]
@@ -172,7 +172,7 @@ window.TRANSLATIONS = {
     about: {
       eyebrow: "About Elias",
       title: "The man behind the machines",
-      body: "Elias Nijs is taking over from Espritt and continuing the trade with the same dedication. With a professional bachelor's degree in Automotive Technology (<a href=\"https://thomasmore.be/nl/opleidingen/professionele-bachelor/autotechnologie/autotechnologie/sint-katelijne-waver/basistraject\" target=\"_blank\" rel=\"noopener\">Thomas More</a>) and years of experience, he knows machines inside and out. Whether it's a wood chipper that stalled on site, a routine service, or the full restoration of a classic car — you always get the same thing: honest work, no frills.",
+      body: "Elias Nijs is taking over from Espritt and continuing the trade with the same dedication. With a professional bachelor's degree in Automotive Technology (<a href=\"https://thomasmore.be/nl/opleidingen/professionele-bachelor/autotechnologie/autotechnologie/sint-katelijne-waver/basistraject\" target=\"_blank\" rel=\"noopener\">Thomas More</a>) and years of experience, he knows machines inside and out. Whether it's a wood chipper that stalled on site, a routine service, or the full restoration of a classic car, you always get the same thing: honest work, straight to the point.",
       cta: "Get in touch"
     },
     cta: {
@@ -191,7 +191,7 @@ window.TRANSLATIONS = {
     products: {
       heroTitle: "Our brands",
       heroSubtitle: "The brands we sell",
-      intro: "Elias is an official Forst dealer and works with strong, reliable brands. Below are the brands he sells and services. Looking for something specific? Get in touch — we'll find the right solution for your work.",
+      intro: "We are an official Forst dealer and work with strong, reliable brands. Below are the brands we sell and service. Looking for something specific? Get in touch, and we'll find the right solution for your work.",
       ctaDemoTitle: "Interested in a demo?",
       ctaDemoBody: "Come and see the machines, or request an on-site demonstration.",
       ctaDemoButton: "Contact us"
@@ -200,11 +200,11 @@ window.TRANSLATIONS = {
       heroTitle: "Service & Craftsmanship",
       heroSubtitle: "From machinery maintenance to classic cars",
       machineryTitle: "Machinery Service & Maintenance",
-      machineryIntro: "Your machines need to run. When they don't, Elias sorts it — fast, skilled, no detours. Diagnostics, repair, maintenance and mobile callouts: all under one roof.",
+      machineryIntro: "Your machines need to run. When they don't, we sort it — fast, skilled, no detours. Diagnostics, repair, maintenance and mobile callouts: all under one roof.",
       oldtimerEyebrow: "A passion for metal",
       oldtimerTitle: "Custom Cars & Classics",
-      oldtimerIntro: "Classic cars and oldtimers deserve more than a standard approach. Elias specialises in particular in BMW and Volkswagen, where every vehicle gets the time and detail it needs. From full restorations to custom builds: you work directly with the man doing the work.",
-      oldtimerQuote: "Every classic car has a story. Elias makes sure it keeps running."
+      oldtimerIntro: "Classic cars and oldtimers deserve more than a standard approach. We specialise in particular in BMW and Volkswagen, where every vehicle gets the time and detail it needs. From full restorations to custom builds: you work directly with the man doing the work.",
+      oldtimerQuote: "Every classic car has a story. We make sure it keeps running."
     },
     contact: {
       heroTitle: "Contact",

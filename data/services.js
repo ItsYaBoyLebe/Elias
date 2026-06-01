@@ -4,7 +4,7 @@ window.SERVICES = {
       icon: "wrench",
       title: { nl: "Diagnose & Herstel", en: "Diagnostics & Repair" },
       body: {
-        nl: "Snelle en correcte foutdiagnose op motor, hydrauliek en elektronica. Herstellingen uitgevoerd met originele of kwalitatieve onderdelen.",
+        nl: "Snelle en nauwkeurige diagnose van motor, hydrauliek en elektronica. Herstellingen met originele of hoogwaardige onderdelen.",
         en: "Fast and accurate fault diagnosis on engine, hydraulics and electronics. Repairs carried out with original or high-quality parts."
       }
     },
@@ -20,8 +20,8 @@ window.SERVICES = {
       icon: "truck",
       title: { nl: "Mobiele Interventie", en: "Mobile Callout" },
       body: {
-        nl: "Panne op de werf? Elias komt ter plaatse met de juiste tools en reserveonderdelen. Minder verplaatsingen, sneller weer aan de slag.",
-        en: "Breakdown on site? Elias comes to you with the right tools and spare parts. Fewer trips, back to work faster."
+        nl: "Panne op de werf? Wij komen ter plaatse met de juiste tools en reserveonderdelen. Minder verplaatsingen, sneller weer aan de slag.",
+        en: "Breakdown on site? We come to you with the right tools and spare parts. Fewer trips, back to work faster."
       }
     }
   ],

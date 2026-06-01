@@ -2,7 +2,7 @@ window.CONFIG = {
   brand: {
     name: "Elias Nijs",
     tagline: {
-      nl: "Vakmanschap dat u kunt vertrouwen",
+      nl: "Vakmanschap dat u op kunt vertrouwen",
       en: "Craftsmanship you can trust"
     },
     defaultLang: "nl"
@@ -53,8 +53,8 @@ window.CONFIG = {
           en: "Elias Nijs – Forestry Machinery & Oldtimers"
         },
         description: {
-          nl: "Elias Nijs – specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u kunt vertrouwen.",
-          en: "Elias Nijs – specialist in professional forestry machinery, service and classic car restoration. Craftsmanship you can trust."
+          nl: "Elias Nijs – De specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u op kunt vertrouwen.",
+          en: "Elias Nijs – The specialist in professional forestry machinery, service and classic car restoration. Craftsmanship you can trust."
         }
       },
       products: {
@@ -73,8 +73,8 @@ window.CONFIG = {
           en: "Service – Elias Nijs"
         },
         description: {
-          nl: "Service, onderhoud en herstel van bosbouwmachines. Daarnaast restauratie van oldtimers en custom cars.",
-          en: "Service, maintenance and repair of forestry machinery. Plus classic car restoration and custom builds."
+          nl: "Service, onderhoud en herstel van bosbouwmachines. Restauratie van oldtimers en custom cars.",
+          en: "Service, maintenance and repair of forestry machinery. Classic car restoration and custom builds."
         }
       },
       contact: {
@@ -83,8 +83,8 @@ window.CONFIG = {
           en: "Contact – Elias Nijs"
         },
         description: {
-          nl: "Neem contact op met Elias Nijs voor machines, service of oldtimer projecten.",
-          en: "Get in touch with Elias Nijs for machinery, service or classic car projects."
+          nl: "Neem contact op met Elias Nijs voor uw machines, service of oldtimer projecten.",
+          en: "Get in touch with Elias Nijs for your machinery, service or classic car projects."
         }
       }
     }
