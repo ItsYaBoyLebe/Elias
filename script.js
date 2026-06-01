@@ -81,6 +81,7 @@
     bindNavScroll();
     bindContactForm();
     initScrollReveal();
+    prefetchPages();
   });
 
   // -------------------- CONFIG INJECTION --------------------
@@ -215,6 +216,20 @@
     const update = () => nav.classList.toggle("scrolled", window.scrollY > 20);
     update();
     window.addEventListener("scroll", update, { passive: true });
+  }
+
+  // -------------------- PREFETCH --------------------
+  // Silently loads all other pages into the browser cache so navigation
+  // feels instant. Runs after the current page is fully rendered.
+  function prefetchPages() {
+    const all = ["index.html", "products.html", "service.html", "contact.html"];
+    const current = location.pathname.split("/").pop() || "index.html";
+    all.filter(p => p !== current).forEach(page => {
+      const link = document.createElement("link");
+      link.rel  = "prefetch";
+      link.href = page;
+      document.head.appendChild(link);
+    });
   }
 
   // -------------------- SCROLL REVEAL --------------------
