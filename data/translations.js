@@ -95,7 +95,7 @@ window.TRANSLATIONS = {
     notfound: {
       eyebrow: "404",
       title: "Panne.",
-      body: "Deze pagina bestaat niet. Maar Elias wel — en hij lost het op.",
+      body: "Deze pagina bestaat niet. Maar Elias wel, en hij lost het op.",
       cta: "Terug naar huis"
     },
     contact: {
@@ -215,7 +215,7 @@ window.TRANSLATIONS = {
     notfound: {
       eyebrow: "404",
       title: "Breakdown.",
-      body: "This page doesn't exist. But Elias does — and he'll sort it out.",
+      body: "This page doesn't exist. But Elias does, and he'll sort it out.",
       cta: "Back to home"
     },
     contact: {
