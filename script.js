@@ -224,11 +224,24 @@
   function prefetchPages() {
     const all = ["index.html", "products.html", "service.html", "contact.html"];
     const current = location.pathname.split("/").pop() || "index.html";
+    const fetched = new Set();
+
+    // Low-priority background prefetch for all other pages
     all.filter(p => p !== current).forEach(page => {
       const link = document.createElement("link");
       link.rel  = "prefetch";
       link.href = page;
       document.head.appendChild(link);
+    });
+
+    // High-priority fetch on hover — fires ~150ms before the click
+    document.querySelectorAll(".nav-links a[href]").forEach(a => {
+      a.addEventListener("pointerenter", () => {
+        const href = a.getAttribute("href");
+        if (!href || href.startsWith("http") || fetched.has(href)) return;
+        fetched.add(href);
+        fetch(href);
+      });
     });
   }
 
