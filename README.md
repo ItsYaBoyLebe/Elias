@@ -1,47 +1,45 @@
-# Elias Nijs — tech home base
+# Elias Nijs — website
 
-Website and (in progress) online tools for Elias Nijs: forestry machinery,
-machine rental, service, and oldtimer/classic-car sales.
+The website for Elias Nijs: forestry machinery sales, service, and
+oldtimer/classic-car work. Static site (plain HTML/CSS/JS, no build step),
+bilingual NL/EN, deployed via GitHub Pages to **eliasnijs.be**.
 
-## Repo layout
+## Files
 
 ```
-apps/
-  web/        Public marketing site + car listings (live; static HTML/CSS/JS)
-  rental/     "Rent a machine online" booking flow (to build)
-  admin/      Rental planning dashboard, login-only (to build)
-packages/
-  theme/      Brand: colors, fonts, icons — shared by all apps
-  model/      Shared data shapes: Machine, Car, Booking, Customer
-backend/      Database schema + serverless functions
-docs/         Architecture + security guidance
-knowledge/    Committed reference material (safe to be in the repo)
-private/      Local-only files (gitignored — never leaves your computer)
+index.html      Home
+products.html   Aanbod — brand logo wall
+service.html    Service (machines + oldtimers)
+contact.html    Contact + map
+script.js       Renders every page from the data files below
+style.css       All styling
+data/
+  config.js       Brand, colors, contact details, map, page meta
+  translations.js All NL + EN text
+  services.js     Service items (machines + oldtimers)
+  brands.js       Brands shown on the Aanbod page
+assets/
+  img/elias.jpg   Photo used in the About section
+  logos/          Brand logos
+CNAME           Custom domain for GitHub Pages (eliasnijs.be)
 ```
 
-## Running the website locally
+## Run locally
 
-It's a static site — no build step. From `apps/web`:
+No build step:
 
 ```bash
-cd apps/web
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-## Where do I put a file? (important)
+## Edit common things
 
-Decide sensitivity first — full guide in **[docs/security.md](docs/security.md)**:
+- **Text** (NL/EN): `data/translations.js`
+- **Contact details / opening hours / map**: `data/config.js`
+- **Brands on the Aanbod page**: `data/brands.js` (add a logo file to
+  `assets/logos/` and point to it)
+- **Elias's photo**: replace `assets/img/elias.jpg`
 
-| File is…                          | Put it in    | Committed? |
-|-----------------------------------|--------------|------------|
-| Safe reference material           | `knowledge/` | yes        |
-| Sensitive (customers, prices…)    | `private/`   | no         |
-| A secret (API key, password)      | `.env`       | no         |
-| Versioned but must stay secret    | git-crypt    | encrypted  |
+## Deploy
 
-`.env` starts from `.env.example` (`cp .env.example .env`).
-
-## Plan
-
-See **[docs/architecture.md](docs/architecture.md)** for the design and the
-step-by-step plan to add rental booking, planning, and car sales.
+Push to `main` — GitHub Pages serves the repo root automatically.
