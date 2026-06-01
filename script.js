@@ -266,7 +266,7 @@
     });
 
     // High-priority fetch on hover — fires ~150ms before the click
-    document.querySelectorAll(".nav-links a[href]").forEach(a => {
+    document.querySelectorAll("a[href]").forEach(a => {
       a.addEventListener("pointerenter", () => {
         const href = a.getAttribute("href");
         if (!href || href.startsWith("http") || fetched.has(href)) return;
