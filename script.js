@@ -81,6 +81,7 @@
     bindNavScroll();
     bindContactForm();
     initScrollReveal();
+    injectAnalytics();
     prefetchPages();
     initPageTransitions();
   });
@@ -217,6 +218,17 @@
     const update = () => nav.classList.toggle("scrolled", window.scrollY > 20);
     update();
     window.addEventListener("scroll", update, { passive: true });
+  }
+
+  // -------------------- ANALYTICS --------------------
+  function injectAnalytics() {
+    const domain = window.CONFIG?.analytics?.plausibleDomain;
+    if (!domain) return;
+    const s = document.createElement("script");
+    s.defer = true;
+    s.dataset.domain = domain;
+    s.src = "https://plausible.io/js/script.js";
+    document.head.appendChild(s);
   }
 
   // -------------------- PAGE TRANSITIONS --------------------

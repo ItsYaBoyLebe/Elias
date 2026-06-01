@@ -38,6 +38,11 @@ window.CONFIG = {
   maps: {
     embedUrl: "https://www.google.com/maps?q=Diestsesteenweg+712+D,+3010+Leuven,+Belgi%C3%AB&output=embed"
   },
+  analytics: {
+    // Plausible domain. Sign up at https://plausible.io and add eliasnijs.be.
+    // Set to "" to disable.
+    plausibleDomain: "eliasnijs.be"
+  },
   forms: {
     // Web3Forms access key. Get a free one at https://web3forms.com by
     // entering info@eliasnijs.be — they email you a key. Paste it here.
