@@ -723,6 +723,13 @@ body { animation: fadeIn 0.35s ease both; }
 .page-hero .eyebrow { animation: fadeUp 0.6s 0.05s ease both; }
 .page-hero h1       { animation: fadeUp 0.7s 0.18s ease both; }
 
+/* 404 page entrance — mirrors hero stagger */
+.notfound-section .notfound-icon { animation: fadeUp 0.6s 0.05s ease both; }
+.notfound-section .eyebrow       { animation: fadeUp 0.6s 0.15s ease both; }
+.notfound-section h1             { animation: fadeUp 0.7s 0.25s ease both; }
+.notfound-section p              { animation: fadeUp 0.6s 0.38s ease both; }
+.notfound-section .btn           { animation: fadeUp 0.6s 0.50s ease both; }
+
 /* Scroll reveal — individual elements */
 .reveal {
   opacity: 0;
