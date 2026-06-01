@@ -55,7 +55,7 @@
     renderFooter();
 
     // Page-specific renders
-    if (state.page === "products") renderProducts();
+    if (state.page === "products") renderBrands();
     if (state.page === "service")  renderServices();
     if (state.page === "home")     renderHome();
     if (state.page === "contact")  renderContact();
@@ -203,7 +203,7 @@
 
     // Re-render dynamic content
     applyMeta();
-    if (state.page === "products") renderProducts();
+    if (state.page === "products") renderBrands();
     if (state.page === "service")  renderServices();
     if (state.page === "home")     renderHome();
     if (state.page === "contact")  renderContact();
@@ -261,7 +261,11 @@
     if (!host) return;
     host.innerHTML = `
       <div class="about-split">
-        <div class="img-placeholder">${icon("person")}</div>
+        <div class="about-photo">
+          <img src="assets/img/elias.jpg" alt="Elias Nijs" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="img-placeholder" style="display:none">${icon("person")}</div>
+        </div>
         <div>
           <span class="eyebrow">${t("about.eyebrow")}</span>
           <h2>${t("about.title")}</h2>
@@ -272,27 +276,21 @@
     `;
   }
 
-  // -------------------- PRODUCTS --------------------
-  function renderProducts() {
-    const host = document.getElementById("product-grid");
+  // -------------------- BRANDS (Aanbod logo wall) --------------------
+  function renderBrands() {
+    const host = document.getElementById("brand-grid");
     if (!host) return;
-    const products = window.PRODUCTS || [];
-    host.innerHTML = products.map(p => {
-      const img = p.image
-        ? `<img src="${p.image}" alt="${pick(p.name)}" />`
-        : `<div class="img-placeholder">${icon(p.icon)}</div>`;
-      return `
-        <article class="card">
-          ${img}
-          <div class="card-body">
-            <span class="brand-tag">${p.brand || ""}</span>
-            <h3>${pick(p.name)}</h3>
-            <p>${pick(p.description)}</p>
-            <div class="spec">${pick(p.shortSpec)}</div>
-            <a class="btn btn-outline" href="${p.ctaLink}">${pick(p.ctaLabel)}</a>
-          </div>
-        </article>
-      `;
+    const brands = window.BRANDS || [];
+    host.innerHTML = brands.map(b => {
+      // Show the logo if it loads; otherwise fall back to the brand name.
+      const fallback = `<span class=&quot;brand-name&quot;>${b.name}</span>`;
+      const inner = b.logo
+        ? `<img src="${b.logo}" alt="${b.name}" loading="lazy" onerror="this.outerHTML='${fallback}'" />`
+        : `<span class="brand-name">${b.name}</span>`;
+      const tile = `<div class="brand-card">${inner}</div>`;
+      return b.url
+        ? `<a class="brand-link" href="${b.url}" target="_blank" rel="noopener" title="${b.name}">${tile}</a>`
+        : tile;
     }).join("");
   }
 

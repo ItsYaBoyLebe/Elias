@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────
+#  Secrets & credentials  — NEVER commit these
+# ─────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*-credentials.json
+serviceAccount*.json
+secrets/
+
+# ─────────────────────────────────────────────────────────────
+#  Private knowledge  — stays on your computer, never pushed
+#  Drop sensitive notes, customer data, pricing, etc. in private/
+#  The folder + its README stay tracked; everything else is ignored.
+# ─────────────────────────────────────────────────────────────
+private/*
+!private/README.md
+
+# ─────────────────────────────────────────────────────────────
+#  Encrypted-in-repo files (git-crypt) — see docs/security.md
+#  These ARE committed, but only ever in encrypted form.
+#  (git-crypt handles this via .gitattributes; nothing to ignore.)
+# ─────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────
+#  Dependencies & build output
+# ─────────────────────────────────────────────────────────────
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# ─────────────────────────────────────────────────────────────
+#  OS / editor junk
+# ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

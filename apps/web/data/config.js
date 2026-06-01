@@ -22,13 +22,13 @@ window.CONFIG = {
     body: "Source Sans 3"
   },
   contact: {
-    phone: "+32 (0)XXX XX XX XX",
-    phoneHref: "+32000000000",
+    phone: "+32 473 43 87 29",
+    phoneHref: "+32473438729",
     email: "info@eliasnijs.be",
-    address: "[Straat], [Gemeente], België",
+    address: "Diestsesteenweg 712 D, 3010 Leuven, België",
     hours: {
-      nl: "Ma–Vr: 08u–18u | Zat: Op afspraak",
-      en: "Mon–Fri: 8am–6pm | Sat: By appointment"
+      nl: "Ma–Vr: 09u–17u",
+      en: "Mon–Fri: 9am–5pm"
     }
   },
   social: {
@@ -36,7 +36,7 @@ window.CONFIG = {
     instagram: "#"
   },
   maps: {
-    embedUrl: ""
+    embedUrl: "https://www.google.com/maps?q=Diestsesteenweg+712+D,+3010+Leuven,+Belgi%C3%AB&output=embed"
   },
   meta: {
     pages: {

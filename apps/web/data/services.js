@@ -10,10 +10,10 @@ window.SERVICES = {
     },
     {
       icon: "calendar",
-      title: { nl: "Preventief Onderhoud", en: "Preventive Maintenance" },
+      title: { nl: "Onderhoud", en: "Maintenance" },
       body: {
-        nl: "Onderhoudscontracten op maat zodat uw machine blijft presteren en stilstand tot een minimum beperkt blijft.",
-        en: "Tailored maintenance contracts that keep your machine performing and downtime to a minimum."
+        nl: "Regelmatig onderhoud zodat uw machine blijft presteren en stilstand tot een minimum beperkt blijft.",
+        en: "Regular maintenance that keeps your machine performing and downtime to a minimum."
       }
     },
     {
@@ -38,8 +38,8 @@ window.SERVICES = {
       icon: "gear",
       title: { nl: "Mechanische Revisie", en: "Mechanical Overhaul" },
       body: {
-        nl: "Motor, versnellingsbak, ophanging en remmen: revisie en afstelling door een ervaren mecanicien.",
-        en: "Engine, gearbox, suspension and brakes: overhaul and tuning by an experienced mechanic."
+        nl: "Motor, versnellingsbak, ophanging en remmen: revisie en afstelling met oog voor detail.",
+        en: "Engine, gearbox, suspension and brakes: overhaul and tuning with an eye for detail."
       }
     },
     {

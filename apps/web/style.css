@@ -271,6 +271,51 @@ section { padding: 5rem 0; }
   gap: 1.5rem;
 }
 
+/* ----- BRAND WALL (Aanbod) ----- */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.brand-link { text-decoration: none; }
+.brand-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  min-height: 120px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.brand-card img {
+  max-width: 100%;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* greyscale until hover keeps the wall calm and uniform */
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.brand-card:hover img { filter: grayscale(0); opacity: 1; }
+.brand-card .brand-name {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-align: center;
+}
+
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -391,6 +436,15 @@ section { padding: 5rem 0; }
 }
 .about-split .img-placeholder { aspect-ratio: 4 / 5; border-radius: 4px; }
 .about-split p { font-size: 1.1rem; color: var(--color-text-muted); }
+.about-photo { aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; }
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.about-photo .img-placeholder { width: 100%; height: 100%; aspect-ratio: auto; }
 
 /* ----- CTA STRIP ----- */
 .cta-strip {
