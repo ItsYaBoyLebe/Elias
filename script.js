@@ -500,6 +500,9 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Honeypot: bots fill in the hidden checkbox, humans never see it
+      if (form.querySelector('[name="botcheck"]')?.checked) return;
+
       const lastSent = parseInt(localStorage.getItem("elias-form-ts") || "0");
       if (Date.now() - lastSent < 60_000) {
         showStatus(t("contact.formError"), true);
@@ -525,7 +528,8 @@
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { Accept: "application/json" },
-          body: data
+          body: data,
+          signal: AbortSignal.timeout(10_000)
         });
         const json = await res.json();
         if (json.success) {
