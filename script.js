@@ -37,6 +37,23 @@
   };
   const icon = (name) => ICONS[name] || ICONS.star;
 
+  // -------------------- PICTURE TAG HELPER --------------------
+  // Generates a <picture> with avif + webp sources for any raster image.
+  // SVGs are returned as a plain <img> — they need no conversion.
+  function pictureTag(src, alt, imgAttrs = "") {
+    if (src.toLowerCase().endsWith(".svg")) {
+      return `<img src="${src}" alt="${alt}" ${imgAttrs} />`;
+    }
+    const dot  = src.lastIndexOf(".");
+    const base = src.slice(0, dot);
+    const ext  = src.slice(dot).toLowerCase();
+    const sources = [
+      `<source srcset="${base}.avif" type="image/avif" />`,
+      ext !== ".webp" ? `<source srcset="${base}.webp" type="image/webp" />` : "",
+    ].filter(Boolean).join("");
+    return `<picture>${sources}<img src="${src}" alt="${alt}" ${imgAttrs} /></picture>`;
+  }
+
   // -------------------- STATE --------------------
   const state = {
     lang: "nl",
@@ -272,8 +289,7 @@
     host.innerHTML = `
       <div class="about-split">
         <div class="about-photo">
-          <img src="assets/img/elias.jpg" alt="Elias Nijs" loading="lazy"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          ${pictureTag("assets/img/elias.jpg", "Elias Nijs", 'loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"')}
           <div class="img-placeholder" style="display:none">${icon("person")}</div>
         </div>
         <div>
@@ -294,8 +310,9 @@
     host.innerHTML = brands.map(b => {
       // Show the logo if it loads; otherwise fall back to the brand name.
       const fallback = `<span class=&quot;brand-name&quot;>${b.name}</span>`;
+      const imgAttrs = `loading="lazy" onerror="(this.closest('picture')||this).outerHTML='${fallback}'"`;
       const inner = b.logo
-        ? `<img src="${b.logo}" alt="${b.name}" loading="lazy" onerror="this.outerHTML='${fallback}'" />`
+        ? pictureTag(b.logo, b.name, imgAttrs)
         : `<span class="brand-name">${b.name}</span>`;
       const tile = `<div class="brand-card">${inner}</div>`;
       return b.url
