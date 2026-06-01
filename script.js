@@ -247,6 +247,12 @@
       document.body.style.opacity = "0";
       setTimeout(() => { location.href = href; }, 180);
     });
+
+    // Reset opacity when the page is restored from the back/forward cache,
+    // otherwise a Back navigation shows a blank (opacity:0) page.
+    window.addEventListener("pageshow", () => {
+      document.body.style.opacity = "1";
+    });
   }
 
   // -------------------- PREFETCH --------------------
@@ -269,9 +275,13 @@
     document.querySelectorAll("a[href]").forEach(a => {
       a.addEventListener("pointerenter", () => {
         const href = a.getAttribute("href");
-        if (!href || href.startsWith("http") || fetched.has(href)) return;
+        // Only prefetch same-origin page navigations. Skip external links,
+        // in-page anchors, and mailto:/tel: (fetching those throws).
+        if (!href || href.startsWith("http") || href.startsWith("#") ||
+            href.startsWith("mailto") || href.startsWith("tel") ||
+            fetched.has(href)) return;
         fetched.add(href);
-        fetch(href);
+        fetch(href).catch(() => {});
       });
     });
   }
