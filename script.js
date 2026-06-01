@@ -82,6 +82,7 @@
     bindContactForm();
     initScrollReveal();
     prefetchPages();
+    initPageTransitions();
   });
 
   // -------------------- CONFIG INJECTION --------------------
@@ -216,6 +217,23 @@
     const update = () => nav.classList.toggle("scrolled", window.scrollY > 20);
     update();
     window.addEventListener("scroll", update, { passive: true });
+  }
+
+  // -------------------- PAGE TRANSITIONS --------------------
+  function initPageTransitions() {
+    document.addEventListener("click", e => {
+      const a = e.target.closest("a[href]");
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("#") ||
+          href.startsWith("mailto") || href.startsWith("tel")) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      e.preventDefault();
+      document.body.style.transition = "opacity 0.18s ease";
+      document.body.style.opacity = "0";
+      setTimeout(() => { location.href = href; }, 180);
+    });
   }
 
   // -------------------- PREFETCH --------------------
