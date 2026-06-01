@@ -92,6 +92,12 @@ window.TRANSLATIONS = {
       oldtimerIntro: "Klassieke wagens en oldtimers verdienen meer dan een standaardaanpak. Wij zijn in het bijzonder gespecialiseerd in BMW en Volkswagen, waar elk voertuig de tijd en het detail krijgt dat het nodig heeft. Van volledige restauratie tot custom builds: u werkt rechtstreeks samen met de man die het werk uitvoert.",
       oldtimerQuote: "Elk klassiek voertuig heeft een verhaal. Wij zorgen dat het blijft rijden."
     },
+    notfound: {
+      eyebrow: "404",
+      title: "Oeps! Verkeerde afslag genomen",
+      body: "Deze pagina hebben we door de versnipperaar gehaald. Of misschien reed ze gewoon weg in een oldtimer. Hoe dan ook — ze is er niet meer.",
+      cta: "Terug naar huis"
+    },
     contact: {
       heroTitle: "Contact",
       heroSubtitle: "Laat van u horen",
@@ -205,6 +211,12 @@ window.TRANSLATIONS = {
       oldtimerTitle: "Custom Cars & Classics",
       oldtimerIntro: "Classic cars and oldtimers deserve more than a standard approach. We specialise in particular in BMW and Volkswagen, where every vehicle gets the time and detail it needs. From full restorations to custom builds: you work directly with the man doing the work.",
       oldtimerQuote: "Every classic car has a story. We make sure it keeps running."
+    },
+    notfound: {
+      eyebrow: "404",
+      title: "Wrong turn taken",
+      body: "We put this page through the chipper. Or maybe it drove off in a classic. Either way — it's gone.",
+      cta: "Back to home"
     },
     contact: {
       heroTitle: "Contact",
