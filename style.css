@@ -581,6 +581,11 @@ section { padding: 5rem 0; }
   margin-bottom: 1.2rem;
 }
 .form-success.show { display: block; }
+.form-success.error {
+  background: rgba(200,40,40,0.08);
+  border-color: #c82828;
+  color: #c82828;
+}
 
 .map-block {
   margin-top: 3rem;

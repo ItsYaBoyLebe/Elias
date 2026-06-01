@@ -369,14 +369,54 @@
   function bindContactForm() {
     const form = document.getElementById("contact-form");
     if (!form) return;
-    form.addEventListener("submit", (e) => {
+
+    const statusBox = form.parentElement.querySelector(".form-success");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitLabel = submitBtn ? submitBtn.textContent : "";
+
+    function showStatus(message, isError) {
+      if (!statusBox) return;
+      statusBox.textContent = message;
+      statusBox.classList.toggle("error", !!isError);
+      statusBox.classList.add("show");
+    }
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const success = form.querySelector(".form-success");
-      if (success) {
-        success.textContent = t("contact.formSuccess");
-        success.classList.add("show");
+
+      const key = window.CONFIG?.forms?.web3formsKey;
+      if (!key || key === "YOUR_ACCESS_KEY_HERE") {
+        showStatus(t("contact.formError"), true);
+        console.warn("Contact form: no Web3Forms access key set in data/config.js");
+        return;
       }
-      form.reset();
+
+      // Build the payload from the form's named fields.
+      const data = new FormData(form);
+      data.append("access_key", key);
+      data.append("subject", "Nieuw bericht via eliasnijs.be");
+      data.append("from_name", "eliasnijs.be");
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t("contact.formSending"); }
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data
+        });
+        const json = await res.json();
+        if (json.success) {
+          showStatus(t("contact.formSuccess"), false);
+          form.reset();
+        } else {
+          showStatus(t("contact.formError"), true);
+        }
+      } catch (err) {
+        showStatus(t("contact.formError"), true);
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
+      }
     });
   }
 

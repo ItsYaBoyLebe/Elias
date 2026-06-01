@@ -28,6 +28,8 @@
           <h3 data-i18n="contact.formTitle"></h3>
           <div class="form-success"></div>
           <form id="contact-form" novalidate>
+            <!-- Honeypot: hidden from people, bots fill it in and get rejected -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="form-field">
               <label for="cf-name" data-i18n="contact.formName"></label>
               <input id="cf-name" type="text" name="name" required />

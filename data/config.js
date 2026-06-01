@@ -38,6 +38,13 @@ window.CONFIG = {
   maps: {
     embedUrl: "https://www.google.com/maps?q=Diestsesteenweg+712+D,+3010+Leuven,+Belgi%C3%AB&output=embed"
   },
+  forms: {
+    // Web3Forms access key. Get a free one at https://web3forms.com by
+    // entering info@eliasnijs.be — they email you a key. Paste it here.
+    // This key is safe to be public: it only ever sends to your verified
+    // address. Until a real key is set, the form shows an error on submit.
+    web3formsKey: "823f53b0-f3e9-42fa-935e-a261df44dad7"
+  },
   meta: {
     pages: {
       home: {

@@ -107,7 +107,9 @@ window.TRANSLATIONS = {
       formPhone: "Telefoon",
       formMessage: "Uw bericht",
       formSubmit: "Verstuur",
+      formSending: "Versturen…",
       formSuccess: "Bedankt! We nemen zo snel mogelijk contact met u op.",
+      formError: "Er ging iets mis. Probeer het opnieuw of bel ons rechtstreeks.",
       mapPlaceholder: "Kaart wordt hier geladen"
     }
   },
@@ -219,7 +221,9 @@ window.TRANSLATIONS = {
       formPhone: "Phone",
       formMessage: "Your message",
       formSubmit: "Send",
+      formSending: "Sending…",
       formSuccess: "Thanks! We'll get back to you as soon as possible.",
+      formError: "Something went wrong. Please try again or call us directly.",
       mapPlaceholder: "Map loads here"
     }
   }
