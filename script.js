@@ -499,6 +499,12 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const lastSent = parseInt(localStorage.getItem("elias-form-ts") || "0");
+      if (Date.now() - lastSent < 60_000) {
+        showStatus(t("contact.formError"), true);
+        return;
+      }
+
       const key = window.CONFIG?.forms?.web3formsKey;
       if (!key || key === "YOUR_ACCESS_KEY_HERE") {
         showStatus(t("contact.formError"), true);
@@ -522,6 +528,7 @@
         });
         const json = await res.json();
         if (json.success) {
+          localStorage.setItem("elias-form-ts", Date.now().toString());
           showStatus(t("contact.formSuccess"), false);
           form.reset();
         } else {
