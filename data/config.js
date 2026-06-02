@@ -38,6 +38,11 @@ window.CONFIG = {
   maps: {
     embedUrl: "https://www.google.com/maps?q=Diestsesteenweg+712+D,+3010+Leuven,+Belgi%C3%AB&output=embed"
   },
+  analytics: {
+    // Plausible domain. Sign up at https://plausible.io and add eliasnijs.be.
+    // Set to "" to disable.
+    plausibleDomain: "eliasnijs.be"
+  },
   forms: {
     // Web3Forms access key. Get a free one at https://web3forms.com by
     // entering info@eliasnijs.be — they email you a key. Paste it here.
@@ -53,8 +58,8 @@ window.CONFIG = {
           en: "Elias Nijs – Forestry Machinery & Oldtimers"
         },
         description: {
-          nl: "Elias Nijs – specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u kunt vertrouwen.",
-          en: "Elias Nijs – specialist in professional forestry machinery, service and classic car restoration. Craftsmanship you can trust."
+          nl: "Elias Nijs – De specialist in professionele bosbouwmachines, service en oldtimer restauratie. Vakmanschap dat u kunt vertrouwen.",
+          en: "Elias Nijs – The specialist in professional forestry machinery, service and classic car restoration. Craftsmanship you can trust."
         }
       },
       products: {
@@ -73,8 +78,8 @@ window.CONFIG = {
           en: "Service – Elias Nijs"
         },
         description: {
-          nl: "Service, onderhoud en herstel van bosbouwmachines. Daarnaast restauratie van oldtimers en custom cars.",
-          en: "Service, maintenance and repair of forestry machinery. Plus classic car restoration and custom builds."
+          nl: "Service, onderhoud en herstel van bosbouwmachines. Restauratie van oldtimers en custom cars.",
+          en: "Service, maintenance and repair of forestry machinery. Classic car restoration and custom builds."
         }
       },
       contact: {
@@ -83,8 +88,8 @@ window.CONFIG = {
           en: "Contact – Elias Nijs"
         },
         description: {
-          nl: "Neem contact op met Elias Nijs voor machines, service of oldtimer projecten.",
-          en: "Get in touch with Elias Nijs for machinery, service or classic car projects."
+          nl: "Neem contact op met Elias Nijs voor uw machines, service of oldtimer projecten.",
+          en: "Get in touch with Elias Nijs for your machinery, service or classic car projects."
         }
       }
     }

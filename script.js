@@ -37,6 +37,23 @@
   };
   const icon = (name) => ICONS[name] || ICONS.star;
 
+  // -------------------- PICTURE TAG HELPER --------------------
+  // Generates a <picture> with avif + webp sources for any raster image.
+  // SVGs are returned as a plain <img> — they need no conversion.
+  function pictureTag(src, alt, imgAttrs = "") {
+    if (src.toLowerCase().endsWith(".svg")) {
+      return `<img src="${src}" alt="${alt}" ${imgAttrs} />`;
+    }
+    const dot  = src.lastIndexOf(".");
+    const base = src.slice(0, dot);
+    const ext  = src.slice(dot).toLowerCase();
+    const sources = [
+      `<source srcset="${base}.avif" type="image/avif" />`,
+      ext !== ".webp" ? `<source srcset="${base}.webp" type="image/webp" />` : "",
+    ].filter(Boolean).join("");
+    return `<picture>${sources}<img src="${src}" alt="${alt}" ${imgAttrs} /></picture>`;
+  }
+
   // -------------------- STATE --------------------
   const state = {
     lang: "nl",
@@ -55,14 +72,19 @@
     renderFooter();
 
     // Page-specific renders
-    if (state.page === "products") renderBrands();
-    if (state.page === "service")  renderServices();
-    if (state.page === "home")     renderHome();
-    if (state.page === "contact")  renderContact();
+    if (state.page === "products")  renderBrands();
+    if (state.page === "service")   renderServices();
+    if (state.page === "home")      renderHome();
+    if (state.page === "contact")   renderContact();
+    if (state.page === "notfound")  renderNotFound();
 
     applyTranslations();
     bindNavScroll();
     bindContactForm();
+    initScrollReveal();
+    injectAnalytics();
+    prefetchPages();
+    initPageTransitions();
   });
 
   // -------------------- CONFIG INJECTION --------------------
@@ -101,17 +123,27 @@
     document.documentElement.style.setProperty("--font-body",    `"${f.body}"`);
   }
 
+  function setMetaTag(attr, value, content) {
+    let el = document.querySelector(`meta[${attr}="${value}"]`);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, value);
+      document.head.appendChild(el);
+    }
+    el.content = content;
+  }
+
   function applyMeta() {
     const m = window.CONFIG?.meta?.pages?.[state.page];
     if (!m) return;
-    document.title = m.title[state.lang] || m.title.nl;
-    let desc = document.querySelector('meta[name="description"]');
-    if (!desc) {
-      desc = document.createElement("meta");
-      desc.name = "description";
-      document.head.appendChild(desc);
-    }
-    desc.content = m.description[state.lang] || m.description.nl;
+    const title       = m.title[state.lang]       || m.title.nl;
+    const description = m.description[state.lang] || m.description.nl;
+    document.title = title;
+    setMetaTag("name",     "description",       description);
+    setMetaTag("property", "og:title",          title);
+    setMetaTag("property", "og:description",    description);
+    setMetaTag("name",     "twitter:title",      title);
+    setMetaTag("name",     "twitter:description", description);
   }
 
   // -------------------- TRANSLATION HELPERS --------------------
@@ -189,6 +221,100 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
+  // -------------------- ANALYTICS --------------------
+  function injectAnalytics() {
+    const domain = window.CONFIG?.analytics?.plausibleDomain;
+    if (!domain) return;
+    const s = document.createElement("script");
+    s.defer = true;
+    s.dataset.domain = domain;
+    s.src = "https://plausible.io/js/script.js";
+    document.head.appendChild(s);
+  }
+
+  // -------------------- PAGE TRANSITIONS --------------------
+  function initPageTransitions() {
+    document.addEventListener("click", e => {
+      const a = e.target.closest("a[href]");
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("#") ||
+          href.startsWith("mailto") || href.startsWith("tel")) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      e.preventDefault();
+      document.body.style.transition = "opacity 0.18s ease";
+      document.body.style.opacity = "0";
+      setTimeout(() => { location.href = href; }, 180);
+    });
+
+    // Reset opacity when the page is restored from the back/forward cache,
+    // otherwise a Back navigation shows a blank (opacity:0) page.
+    window.addEventListener("pageshow", () => {
+      document.body.style.opacity = "1";
+    });
+  }
+
+  // -------------------- PREFETCH --------------------
+  // Silently loads all other pages into the browser cache so navigation
+  // feels instant. Runs after the current page is fully rendered.
+  function prefetchPages() {
+    const all = ["index.html", "products.html", "service.html", "contact.html"];
+    const current = location.pathname.split("/").pop() || "index.html";
+    const fetched = new Set();
+
+    // Low-priority background prefetch for all other pages
+    all.filter(p => p !== current).forEach(page => {
+      const link = document.createElement("link");
+      link.rel  = "prefetch";
+      link.href = page;
+      document.head.appendChild(link);
+    });
+
+    // High-priority fetch on hover — fires ~150ms before the click
+    document.querySelectorAll("a[href]").forEach(a => {
+      a.addEventListener("pointerenter", () => {
+        const href = a.getAttribute("href");
+        // Only prefetch same-origin page navigations. Skip external links,
+        // in-page anchors, and mailto:/tel: (fetching those throws).
+        if (!href || href.startsWith("http") || href.startsWith("#") ||
+            href.startsWith("mailto") || href.startsWith("tel") ||
+            fetched.has(href)) return;
+        fetched.add(href);
+        fetch(href).catch(() => {});
+      });
+    });
+  }
+
+  // -------------------- SCROLL REVEAL --------------------
+  function initScrollReveal() {
+    // Individual elements fade up when they enter the viewport
+    [
+      ".section-head", ".service-intro", ".about-split",
+      ".contact-layout", ".quote-block", ".map-block",
+      ".cta-strip .container",
+    ].forEach(sel =>
+      document.querySelectorAll(sel).forEach(el => el.classList.add("reveal"))
+    );
+
+    // Grid containers: children stagger in one by one
+    [
+      ".pillar-grid", ".values-grid", ".brand-grid", ".service-grid",
+    ].forEach(sel =>
+      document.querySelectorAll(sel).forEach(el => el.classList.add("reveal-stagger"))
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+    document.querySelectorAll(".reveal, .reveal-stagger").forEach(el => observer.observe(el));
+  }
+
   // -------------------- LANGUAGE --------------------
   function setLanguage(lang) {
     if (!lang || lang === state.lang) return;
@@ -262,8 +388,7 @@
     host.innerHTML = `
       <div class="about-split">
         <div class="about-photo">
-          <img src="assets/img/elias.jpg" alt="Elias Nijs" loading="lazy"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          ${pictureTag("assets/img/elias.jpg", "Elias Nijs", 'loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"')}
           <div class="img-placeholder" style="display:none">${icon("person")}</div>
         </div>
         <div>
@@ -284,8 +409,9 @@
     host.innerHTML = brands.map(b => {
       // Show the logo if it loads; otherwise fall back to the brand name.
       const fallback = `<span class=&quot;brand-name&quot;>${b.name}</span>`;
+      const imgAttrs = `loading="lazy" onerror="(this.closest('picture')||this).outerHTML='${fallback}'"`;
       const inner = b.logo
-        ? `<img src="${b.logo}" alt="${b.name}" loading="lazy" onerror="this.outerHTML='${fallback}'" />`
+        ? pictureTag(b.logo, b.name, imgAttrs)
         : `<span class="brand-name">${b.name}</span>`;
       const tile = `<div class="brand-card">${inner}</div>`;
       return b.url
@@ -384,6 +510,15 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Honeypot: bots fill in the hidden checkbox, humans never see it
+      if (form.querySelector('[name="botcheck"]')?.checked) return;
+
+      const lastSent = parseInt(localStorage.getItem("elias-form-ts") || "0");
+      if (Date.now() - lastSent < 60_000) {
+        showStatus(t("contact.formError"), true);
+        return;
+      }
+
       const key = window.CONFIG?.forms?.web3formsKey;
       if (!key || key === "YOUR_ACCESS_KEY_HERE") {
         showStatus(t("contact.formError"), true);
@@ -403,10 +538,12 @@
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { Accept: "application/json" },
-          body: data
+          body: data,
+          signal: AbortSignal.timeout(10_000)
         });
         const json = await res.json();
         if (json.success) {
+          localStorage.setItem("elias-form-ts", Date.now().toString());
           showStatus(t("contact.formSuccess"), false);
           form.reset();
         } else {
@@ -418,6 +555,12 @@
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
       }
     });
+  }
+
+  // -------------------- 404 --------------------
+  function renderNotFound() {
+    const host = document.getElementById("notfound-icon");
+    if (host) host.innerHTML = icon("car");
   }
 
   // -------------------- FOOTER --------------------

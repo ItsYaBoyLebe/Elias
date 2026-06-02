@@ -203,8 +203,13 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(26,26,26,0.75) 100%),
-    repeating-linear-gradient(45deg, #242424 0 2px, #1a1a1a 2px 20px);
+    linear-gradient(135deg, rgba(26,26,26,0.93) 0%, rgba(26,26,26,0.88) 100%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.18) 0 2px, transparent 2px 20px),
+    image-set(
+      url("assets/img/background.avif") type("image/avif"),
+      url("assets/img/background.webp") type("image/webp"),
+      url("assets/img/background.jpg")  type("image/jpeg")
+    ) center / cover no-repeat;
   overflow: hidden;
 }
 .hero::after {
@@ -655,6 +660,109 @@ section { padding: 5rem 0; }
   gap: 1rem;
   font-size: 0.88rem;
   color: rgba(255,255,255,0.5);
+}
+
+/* ----- 404 ----- */
+.notfound-section {
+  min-height: calc(100vh - 3.5rem);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(26,26,26,0.93) 0%, rgba(26,26,26,0.88) 100%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.18) 0 2px, transparent 2px 20px),
+    image-set(
+      url("assets/img/background.avif") type("image/avif"),
+      url("assets/img/background.webp") type("image/webp"),
+      url("assets/img/background.jpg")  type("image/jpeg")
+    ) center / cover no-repeat;
+}
+.notfound-wrap {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+.notfound-icon {
+  width: 88px;
+  height: 88px;
+  background: rgba(232,119,34,0.1);
+  color: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+.notfound-icon svg { width: 44px; height: 44px; }
+.notfound-wrap h1 { margin-bottom: 1rem; color: #fff; }
+.notfound-wrap p  { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 2rem; }
+
+/* ----- ANIMATIONS ----- */
+
+/* Page load fade */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body { animation: fadeIn 0.35s ease both; }
+
+/* Hero — staggered entrance */
+.hero .eyebrow  { animation: fadeUp 0.6s 0.05s ease both; }
+.hero h1        { animation: fadeUp 0.7s 0.18s ease both; }
+.hero .sub      { animation: fadeUp 0.6s 0.32s ease both; }
+.hero-actions   { animation: fadeUp 0.6s 0.46s ease both; }
+
+/* Page hero (subpages) */
+.page-hero .eyebrow { animation: fadeUp 0.6s 0.05s ease both; }
+.page-hero h1       { animation: fadeUp 0.7s 0.18s ease both; }
+
+/* 404 page entrance — mirrors hero stagger */
+.notfound-section .notfound-icon { animation: fadeUp 0.6s 0.05s ease both; }
+.notfound-section .eyebrow       { animation: fadeUp 0.6s 0.15s ease both; }
+.notfound-section h1             { animation: fadeUp 0.7s 0.25s ease both; }
+.notfound-section p              { animation: fadeUp 0.6s 0.38s ease both; }
+.notfound-section .btn           { animation: fadeUp 0.6s 0.50s ease both; }
+
+/* Scroll reveal — individual elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll reveal — staggered grid children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.00s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.visible > *:nth-child(n+5) { transition-delay: 0.30s; }
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ----- RESPONSIVE ----- */
