@@ -31,10 +31,6 @@ window.CONFIG = {
       en: "Mon–Fri: 9am–5pm"
     }
   },
-  social: {
-    facebook: "#",
-    instagram: "#"
-  },
   maps: {
     embedUrl: "https://www.google.com/maps?q=Diestsesteenweg+712+D,+3010+Leuven,+Belgi%C3%AB&output=embed"
   },

@@ -112,6 +112,7 @@ p { margin: 0 0 1em; }
   z-index: 1000;
   transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
   background: rgba(26, 26, 26, 0.85);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 .site-nav.scrolled {
@@ -618,7 +619,7 @@ section { padding: 5rem 0; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 2.5rem;
   margin-bottom: 3rem;
 }
@@ -641,16 +642,6 @@ section { padding: 5rem 0; }
 .site-footer .brand .accent { color: var(--color-accent); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer ul li { margin-bottom: 0.5rem; }
-.social-links { display: flex; gap: 0.6rem; }
-.social-links a {
-  width: 38px; height: 38px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.08);
-  border-radius: 3px;
-  transition: background 0.2s ease;
-}
-.social-links a:hover { background: var(--color-accent); }
-.social-links svg { width: 18px; height: 18px; color: #fff; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 1.5rem;
@@ -779,6 +770,7 @@ body { animation: fadeIn 0.35s ease both; }
     top: 100%; left: 0; right: 0;
     flex-direction: column;
     background: rgba(26,26,26,0.98);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     padding: 1rem 1.5rem;
     gap: 0;

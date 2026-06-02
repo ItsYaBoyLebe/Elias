@@ -5,7 +5,7 @@
    - Add one entry per brand.
    - `name`  : brand name (shown as text if the logo can't be loaded).
    - `logo`  : path to the logo image. Drop the file in
-               apps/web/assets/logos/ using the filename below.
+               assets/logos/ using the filename below.
                SVG or PNG with a transparent background works best.
    - `url`   : link to the brand's website ("" for no link).
 
@@ -13,7 +13,7 @@
    as text instead — so the page never looks broken.
 
    To add a logo: save it as the filename shown in `logo` (e.g. forst.svg)
-   into apps/web/assets/logos/ and you're done.
+   into assets/logos/ and you're done.
    ======================================================================== */
 window.BRANDS = [
   {

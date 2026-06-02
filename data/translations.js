@@ -70,7 +70,6 @@ window.TRANSLATIONS = {
       tagline: "Bosbouwmachines · Service · Oldtimers",
       quickLinksTitle: "Snelle links",
       contactTitle: "Contact",
-      followTitle: "Volg ons",
       rights: "Alle rechten voorbehouden",
       builtWith: "Website door Elias Nijs"
     },
@@ -190,7 +189,6 @@ window.TRANSLATIONS = {
       tagline: "Forestry Machinery · Service · Classic Cars",
       quickLinksTitle: "Quick links",
       contactTitle: "Contact",
-      followTitle: "Follow us",
       rights: "All rights reserved",
       builtWith: "Website by Elias Nijs"
     },

@@ -1,7 +1,7 @@
 /* ========================================================================
    Elias Nijs — shared client script
    Renders the entire site from data/config.js, data/translations.js,
-   data/products.js and data/services.js.
+   data/brands.js and data/services.js.
    ======================================================================== */
 
 (function () {
@@ -29,8 +29,6 @@
     mail:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>',
     pin:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
     clock:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-    facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>',
-    instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8a4 4 0 0 1 3.4 3.4Z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>',
     menu:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>',
     close:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
     arrow:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'
@@ -108,13 +106,7 @@
     const body    = (f.body || "Source Sans 3").replace(/\s+/g, "+");
     const href = `https://fonts.googleapis.com/css2?family=${heading}:wght@400;500;600;700&family=${body}:wght@300;400;500;600;700&display=swap`;
 
-    const pre1 = document.createElement("link");
-    pre1.rel = "preconnect"; pre1.href = "https://fonts.googleapis.com";
-    document.head.appendChild(pre1);
-    const pre2 = document.createElement("link");
-    pre2.rel = "preconnect"; pre2.href = "https://fonts.gstatic.com"; pre2.crossOrigin = "anonymous";
-    document.head.appendChild(pre2);
-
+    // preconnect hints are already present statically in each page's <head>
     const link = document.createElement("link");
     link.rel = "stylesheet"; link.href = href;
     document.head.appendChild(link);
@@ -486,7 +478,7 @@
     if (!host) return;
     const url = window.CONFIG?.maps?.embedUrl;
     if (url) {
-      host.innerHTML = `<iframe src="${url}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`;
+      host.innerHTML = `<iframe src="${url}" title="Elias Nijs — Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>`;
     } else {
       host.textContent = t("contact.mapPlaceholder");
     }
@@ -571,7 +563,6 @@
     const [first, ...rest] = brand.split(" ");
     const brandHtml = `<span>${first}</span> <span class="accent">${rest.join(" ")}</span>`;
     const c = window.CONFIG?.contact || {};
-    const s = window.CONFIG?.social || {};
     const year = new Date().getFullYear();
 
     host.innerHTML = `
@@ -599,13 +590,6 @@
               <li>${c.address || ""}</li>
               <li>${pick(c.hours)}</li>
             </ul>
-          </div>
-          <div>
-            <h4>${t("footer.followTitle")}</h4>
-            <div class="social-links">
-              ${s.facebook  ? `<a href="${s.facebook}"  aria-label="Facebook" target="_blank" rel="noopener">${icon("facebook")}</a>`  : ""}
-              ${s.instagram ? `<a href="${s.instagram}" aria-label="Instagram" target="_blank" rel="noopener">${icon("instagram")}</a>` : ""}
-            </div>
           </div>
         </div>
         <div class="footer-bottom">
